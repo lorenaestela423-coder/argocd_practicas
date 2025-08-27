@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-argo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/lorenaestela423-coder/argocd_practicas.git'  # Cambia por tu repo
+    targetRevision: HEAD
+    path: nginx-app                                       # Carpeta donde está el YAML anterior
+  destination:
+    server: 'https://kubernetes.default.svc'            # Cluster donde se desplegará
+    namespace: default                                  # Namespace de destino
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
