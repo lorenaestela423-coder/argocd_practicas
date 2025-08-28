@@ -1,0 +1,6 @@
+auth:
+  password: MiPasswordSeguro
+master:
+  replicaCount: 1
+cluster:
+  enabled: false
