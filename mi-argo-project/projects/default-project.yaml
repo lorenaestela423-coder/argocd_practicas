@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: redis-project
+  namespace: argocd
+spec:
+  description: "Proyecto para aplicaciones de Redis"
+  sourceRepos:
+    - https://charts.bitnami.com/bitnami
+  destinations:
+    - namespace: redis
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

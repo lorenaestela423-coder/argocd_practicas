@@ -1,0 +1,15 @@
+architecture: replication
+replica:
+  replicaCount: 3
+auth:
+  enabled: true
+auth:
+  password: "supersecretpass123"   # para producción se recomienda usar un Secret externo
+master:
+  persistence:
+    enabled: true
+    size: 5Gi
+replica:
+  persistence:
+    enabled: true
+    size: 5Gi

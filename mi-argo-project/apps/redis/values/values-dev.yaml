@@ -1,0 +1,5 @@
+architecture: replication
+replica:
+  replicaCount: 2
+auth:
+  enabled: false
