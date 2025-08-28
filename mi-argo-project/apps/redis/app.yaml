@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: redis
-    targetRevision: "19.4.2"   # versión exacta para reproducibilidad
+    targetRevision: "22.0.7"   # Actualizado a la versión disponible
     helm:
       valueFiles:
-        - values/values-dev.yaml   # apunta al archivo de values (dev/prod)
+        - values/values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: redis
