@@ -1,20 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: redis
+  name: redis-dev
   namespace: argocd
 spec:
   project: default
+
   source:
-    repoURL: https://charts.bitnami.com/bitnami
+    repoURL: https://charts.bitnami.com/bitnami   # repo Helm
     chart: redis
-    targetRevision: "22.0.7"   # Actualizado a la versión disponible
+    targetRevision: "22.0.7"                      # versión del chart
+
+    # <-- Aquí va la sección helm
     helm:
       valueFiles:
-        - values/values-dev.yaml
+        - apps/redis/values/values-dev.yaml       # ruta relativa dentro del repo
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: redis
+    namespace: redis-dev
+
   syncPolicy:
     automated:
       prune: true
