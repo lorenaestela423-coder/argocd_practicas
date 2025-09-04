@@ -6,11 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://grafana.github.io/helm-charts
-    chart: loki-stack
-    targetRevision: 2.10.2
-    helm:
-      releaseName: loki
+    repoURL: https://github.com/lorenaestela423-coder/argocd_practicas.git
+    path: path/dentro/de/tu/repo    # <-- Aquí va el path a los manifests de Kubernetes
+    targetRevision: main             # <-- Rama o commit que quieras usar
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
