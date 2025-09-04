@@ -6,19 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://grafana.github.io/helm-charts
-    chart: grafana
-    targetRevision: 9.4.4
-    helm:
-      releaseName: grafana
-      values: |
-        adminUser: admin
-        adminPassword: admin
-        service:
-          type: ClusterIP
+    repoURL: https://github.com/lorenaestela423-coder/argocd_practicas.git
+    path: observability-gitops/apps   # carpeta dentro de tu repo donde están los YAML de Grafana
+    targetRevision: main     # branch
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: argocd        # namespace donde se desplegará Grafana
   syncPolicy:
     automated:
       prune: true
