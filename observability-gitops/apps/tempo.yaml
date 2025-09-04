@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenaestela423-coder/argocd_practicas.git
-    path: path/dentro/de/tu/repo/tempo    # <-- Carpeta con los manifests de Tempo
+    path: observability-gitops/apps/    # <-- Carpeta con los manifests de Tempo
     targetRevision: main                   # <-- Rama o commit que quieras usar
   destination:
     server: https://kubernetes.default.svc
