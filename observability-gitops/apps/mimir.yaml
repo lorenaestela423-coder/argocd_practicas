@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenaestela423-coder/argocd_practicas.git
-    path: path/dentro/de/tu/repo/mimir    # <-- Aquí la carpeta con los manifests de Mimir
+    path: observability-gitops/apps/   # <-- Aquí la carpeta con los manifests de Mimir
     targetRevision: main                   # <-- Rama o commit que quieras usar
   destination:
     server: https://kubernetes.default.svc
