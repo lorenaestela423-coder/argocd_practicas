@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenaestela423-coder/argocd_practicas.git
-    path: ingress
+    path: observability-gitops/ingress
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
