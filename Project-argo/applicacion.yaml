@@ -11,7 +11,7 @@ spec:
     path: observability
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: observability
+    namespace: Project-argo
   syncPolicy:
     automated:
       prune: true
