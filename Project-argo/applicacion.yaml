@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/tuusuario/tu-repo.git'
+    repoURL: 'https://github.com/lorenaestela423-coder/argocd_practicas.git'
     targetRevision: main
     path: observability
   destination:
