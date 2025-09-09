@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tempo-pvc
+  namespace: tempo
+spec:
+  accessModes:
+    - ReadWriteOnce    # Solo un Pod lo puede montar a la vez
+  resources:
+    requests:
+      storage: 10Gi    # Tamaño del volumen

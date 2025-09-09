@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tempo-deploy
+  namespace: tempo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tempo
+  template:
+    metadata:
+      labels:
+        app: tempo
+    spec:
+      containers:
+      - name: tempo
+        image: grafana/tempo:2.5.0
+        args:
+          - -config.file=/etc/tempo/tempo.yaml
+        ports:
+        - containerPort: 3200   # API HTTP de Tempo
+        - containerPort: 4317   # OTLP gRPC
+        - containerPort: 4318   # OTLP HTTP
+        volumeMounts:
+        - name: tempo-data
+          mountPath: /var/tempo
+        - name: tempo-config
+          mountPath: /etc/tempo
+      volumes:
+      - name: tempo-data
+        persistentVolumeClaim:
+          claimName: tempo-pvc
+      - name: tempo-config
+        configMap:
+          name: tempo-config
