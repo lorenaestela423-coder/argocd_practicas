@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: tempo-pvc
-  namespace: tempo
+  namespace: observability
 spec:
   accessModes:
     - ReadWriteOnce    # Solo un Pod lo puede montar a la vez
