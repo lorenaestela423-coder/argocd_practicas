@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki
+  namespace: prueba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki
+  template:
+    metadata:
+      labels:
+        app: loki
+    spec:
+      containers:
+      - name: loki
+        image: grafana/loki:2.9.0   # Versión estable de Loki
+        args:
+          - -config.file=/etc/loki/config/config.yaml
+        ports:
+        - containerPort: 3100
+        volumeMounts:
+        - name: loki-storage
+          mountPath: /loki   # Loki usará esta ruta para datos
+        - name: loki-config
+          mountPath: /etc/loki/config
+      volumes:
+      - name: loki-storage
+        persistentVolumeClaim:
+          claimName: loki-pvc   # Conectamos al PVC creado antes
+      - name: loki-config
+        configMap:
+          name: loki-config     # Lo definimos abajo
