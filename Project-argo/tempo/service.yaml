@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tempo-service
-  namespace: tempo
+  namespace: observability
 spec:
   selector:
     app: tempo
